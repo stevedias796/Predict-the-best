@@ -1,0 +1,151 @@
+<html>
+
+<head>
+<title>
+Predict the best|Bollywood Movie Recommendation
+</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+.grid-container {
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+ padding: 10px;
+ padding: 10px 0;
+}
+.rcs {
+  border-radius: 5px;
+}
+
+p.b {
+ top: 0;
+  padding: 15px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  top: 50px;
+}
+.f{
+ text-shadow: 2px 2px 5px black;
+}
+
+.navbar-text1{
+  color: #ffffff;
+  float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+</style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <h3 class="navbar-text1">Predicts the best</h3>
+      <ul class="nav navbar-nav">
+          <li><a href="/home">Home</a></li>
+       <li><a href="bolly">Bollywood</a></li>
+    <li><a href="sal">Salary</a></li>
+
+      </ul>
+
+
+    </nav>
+<div class="container bg-info text-white">
+<div class=" bg-info text-white" style="height:100%">
+
+
+ <div class="grid-container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+	 <center>
+	 <div class="col-sm-8 f">
+       <h2>BOLLYWOOD MOVIE RECOMMENDATION</h2>
+    </div>
+     </center>
+	<div class="col-sm-2">
+    </div>
+  </div>
+ </div>
+
+
+   <div class="row">
+   <div class="col-sm-2">
+   </div>
+
+
+	<div class="col-sm-8">
+	<div style="width:110%;height:180px">
+    <div class="card bg-primary text-white rcs">
+
+	<div style="height:70%">
+    <div class="card-body align-middle">
+  <h3><p class="b">{{ message }}</p></h3>
+	</div>
+  </div>
+  </div>
+    </div>
+
+	<div class="col-sm-2">
+    </div>
+  </div>
+  </div>
+
+
+  <div class="row">
+   <div class="col-sm-4">
+   </div>
+
+	<div class="col-sm-4 form-group ">
+        <form action='/movie_result' method="post">
+    <input type="text" class="form-control" value="" name="mov_name" id="mov_name"><br><br>
+	<center><button type="submit" class="btn btn-secondary">Submit</button></center>
+        </form>
+    </div>
+
+	<div class="col-sm-4">
+    </div>
+  </div>
+
+
+  <div class="grid-container">
+  <div class="row">
+   <div class="col-sm-2">
+   </div>
+
+	<div style="width:110%;height:180px">
+	<div class="col-sm-8">
+ {% for i in range(movies_list|length) %}
+     <div class="card bg-primary text-white rcs">
+	 <div style="height:25%" >
+         <div class="card-body">
+	<h4><p class="b">{{movies_list[i]}}</p></h4>
+
+	</div>
+
+	</div>
+  </div>
+        {% endfor %}
+
+  </div>
+
+    </div>
+
+	<div class="col-sm-2">
+    </div>
+  </div>
+  </div>
+
+</div>
+  </div>
+
+
+
+</body>
+</html>

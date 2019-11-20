@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prdeict the best|Salary predictor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .btn-block1{
+  display: block;
+    width: 60%;
+    margin-left: 20%;
+    height: 100px;
+    font-size: 20px;
+}
+.navbar-text1{
+  color: #ffffff;
+  float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <h3 class="navbar-text1">Predicts the best</h3>
+      <ul class="nav navbar-nav">
+          <li><a href="/index">Home</a></li>
+        <li><a href="bolly">Bollywood</a></li>
+    <li><a href="sal">Salary</a></li>
+      </ul>
+      
+      
+    </nav>
+    <br>
+    <center><h1>EMPLOYEE SALARY PREDICTOR</h1>
+<form action='/result' method="post" class = "btn bg-info" style= "margin-top: 50px; margin-right: 350px;margin-left: 350px; margin-bottom: 50px; border-style: inset;">
+
+<br>Experience:
+<input type="text" id ="r1" name="r1" required><br>
+<br>Test Score:
+<input type="text" id ="r2" name="r2" required><br>
+<br>Interview Score:
+<input type="text" id ="r3" name="r3" required><br>
+<!-- <br>Room:
+<input type="text"  id ="r4" name="r4"><br>
+<br>Room:
+<input type="text" id ="r5" name="r5"><br>
+<br>Room:
+<input type="text" id ="r6" name="r6"><br>
+<br>Room:
+<input type="text" id ="r7" name="r7"><br>
+<br>Room:
+<input type="text" id ="r8" name="r8"><br>
+<br>Room:
+<input type="text" id ="r9" name="r9"><br>
+<br>Room:
+<input type="text" id ="r10" name="r10"><br>
+<br>Room:
+<input type="text" id ="r11" name="r11"><br>
+<br>Room:
+<input type="text" id ="r12" name="r12"><br>
+<br>Room:
+<input type="text" id ="r13" name="r13"><br>
+<br>Room:
+<input type="text" id ="r14" name="r14"><br>
+-->
+
+<br>  
+  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+<br>
+ <h3>{{ param }}</h3>
+</center>
+</form>
+</body>
+</html>
