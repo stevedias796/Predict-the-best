@@ -61,12 +61,12 @@ def movies():
     movie_name = request.form.get('mov_name')
     movie_name.lower()
     mess = "'"+movie_name+"'"+' '+'is a great choice, below are 10 movies that you might like to watch.'
-    file = open('sim.pkl', 'rb')
-    model = pickle.load(file)
+    file1 = open('sim.pkl', 'rb')
+    model1 = pickle.load(file1)
     if movie_name in data['title'].unique():
         i = data.loc[data['title'] == movie_name].index[0]
         list_bolly = []
-        movie_list = list(enumerate(model[i]))
+        movie_list = list(enumerate(model1[i]))
         print(movie_list)
         movie_list = sorted(movie_list, key=lambda x: x[1], reverse=True)
         print(movie_list)
