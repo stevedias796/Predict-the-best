@@ -2,15 +2,11 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, render_template
 import pickle
+from nltk.corpus import wordnet
 
 app = Flask(__name__)
 file = open('model.pkl', 'rb')
 model = pickle.load(file)
-
-
-@app.route('/', methods=['get', 'post'])
-def index():
-    return render_template('index.html')
 
 
 @app.route('/index', methods=['get', 'post'])
@@ -60,18 +56,32 @@ def movies():
     data['title'] = data['title'].str.lower()
     movie_name = request.form.get('mov_name')
     movie_name.lower()
-    mess = "'"+movie_name+"'"+' '+'is a great choice, below are 10 movies that you might like to watch.'
-    file1 = open('sim.pkl', 'rb')
-    model1 = pickle.load(file1)
+    count = 0
+    if movie_name not in data['title'].unique():
+        for i in range(len(data['title'])):
+            #print(data['title'][i])
+            for j in range(len(movie_name)):
+                if movie_name[j] in data['title'][i]:
+                    count += 1
+            if (count >= round(len(data['title'][i])*0.85)) and (count <= len(data['title'][i])) and (count >= round(len(movie_name)*0.85)) and (count <= len(movie_name)):
+                movie_name = data['title'][i]
+                mess = "Did you mean '" + movie_name + "'" + ' ' + ', below are 10 movies that you might like to watch.'
+                break
+            else:
+                count = 0
+    else:
+        mess = "'" + movie_name + "'" + ' ' + 'is a great choice, below are 10 movies that you might like to watch.'
+    file = open('sim.pkl', 'rb')
+    model = pickle.load(file)
     if movie_name in data['title'].unique():
         i = data.loc[data['title'] == movie_name].index[0]
         list_bolly = []
-        movie_list = list(enumerate(model1[i]))
-        print(movie_list)
+        movie_list = list(enumerate(model[i]))
+        #print(movie_list)
         movie_list = sorted(movie_list, key=lambda x: x[1], reverse=True)
-        print(movie_list)
+        #print(movie_list)
         movie_list = movie_list[1:11]
-        print(movie_list)
+        #print(movie_list)
         for j in range(len(movie_list)):
             a = movie_list[j][0]
             list_bolly.append(data['title'][a] + ' (' + data['actors'][a] + ')')
