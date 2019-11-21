@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, render_template
 import pickle
-from nltk.corpus import wordnet
 
 app = Flask(__name__)
 file = open('model.pkl', 'rb')
